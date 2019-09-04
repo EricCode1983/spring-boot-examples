@@ -1,0 +1,29 @@
+
+Course many to many Student
+Student one to one Passport
+Course one to many Reviews
+Reviews many to one Course
+
+
+Course
+id      name
+10001   JPA in 50 steps
+10002   Spring in 50 steps
+10003   Spring boot in 100 steps
+
+
+Student
+id      Number
+20001   Ranga
+20002   Adam
+20003   Jane
+
+Passport
+id      Number
+40001   E123456
+40002
+
+
+Review
+id      rating      description
+

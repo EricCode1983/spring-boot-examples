@@ -21,6 +21,7 @@
         <module>spring-boot-helloWorld</module>
         <module>spring-boot-jpa/spring-boot-jpa</module>
         <module>spring-boot-jpa/spring-boot-multi-Jpa</module>
+        <module>spring-boot-jpa/spring-boot-jpa-mapping</module>
         <module>spring-boot-jpa-thymeleaf-curd</module>
         <module>spring-boot-mail</module>
         <module>spring-boot-memcache-spymemcached</module>
