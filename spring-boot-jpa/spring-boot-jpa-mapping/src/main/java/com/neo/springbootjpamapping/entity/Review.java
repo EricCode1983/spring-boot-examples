@@ -1,9 +1,6 @@
 package com.neo.springbootjpamapping.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Review {
@@ -16,7 +13,7 @@ public class Review {
 
 	private String description;
 
-	@ManyToOne
+	@ManyToOne(fetch= FetchType.LAZY)
 	private Course course;
 
 	protected Review() {

@@ -1,25 +1,27 @@
 package com.neo.springbootjpamapping.repositoryByJpa;
 
 import com.neo.springbootjpamapping.SpringBootJpaMappingApplication;
-import com.neo.springbootjpamapping.entity.Course;
-import com.neo.springbootjpamapping.entity.Passport;
-import com.neo.springbootjpamapping.entity.Review;
-import com.neo.springbootjpamapping.entity.Student;
+import com.neo.springbootjpamapping.entity.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringBootJpaMappingApplication.class)
+
 @Transactional
 public class JpaExecuteTest {
 
@@ -32,6 +34,15 @@ public class JpaExecuteTest {
 
     @Autowired
     private ReviewRepositoryByJpa reviewRepositoryByJpa;
+
+    @Autowired
+    private StudentRepositoryByJpa studentRepositoryByJpa;
+
+    @Autowired
+    private FulltimeEmployeeRepositoryByJpa fulltimeEmployeeRepositoryByJpa;
+
+    @Autowired
+    private ParttimeEmployeeRepositoryByJpa parttimeEmployeeRepositoryByJpa;
 
     private Logger logger= LoggerFactory.getLogger(this.getClass());
 
@@ -82,4 +93,31 @@ public class JpaExecuteTest {
 
 
     }
+
+    @Test
+    public void retrieveCourseByReview()
+    {
+       Review review= reviewRepositoryByJpa.findById(50001L).orElseThrow(() -> new IllegalArgumentException("Not found"));
+       logger.info("--------------------------------------------");
+       logger.info("course -> {}", review.getCourse());
+    }
+
+    @Test
+    public void retrieveStudentAndCourses()
+    {
+        Student student =studentRepositoryByJpa.findById(20001L).orElseThrow(() -> new IllegalArgumentException("Not found"));
+        List<Course> courseList= student.getCourses();
+        logger.info("student->{}",student);
+        logger.info("courses->{}",courseList);
+    }
+
+    @Test
+    public void retrieveFullTimeEmployee()
+    {
+
+        List<Course> lstCourses= courseRepositoryByJpa.findCourseAtLeast2Students();
+        logger.info("List Courses->{}", lstCourses);
+    }
+
+
 }

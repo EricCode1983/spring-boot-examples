@@ -16,4 +16,9 @@ public class FullTimeEmployee extends Employee {
 
 	private BigDecimal salary;
 
+	@Override
+	public String toString() {
+		return String.format("FullTimeEmployee[%s %s]", this.getName(), this.getId());
+	}
+
 }
