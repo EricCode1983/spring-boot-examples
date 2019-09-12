@@ -111,13 +111,16 @@ public class JpaExecuteTest {
         logger.info("courses->{}",courseList);
     }
 
-    @Test
-    public void retrieveFullTimeEmployee()
-    {
 
-        List<Course> lstCourses= courseRepositoryByJpa.findCourseAtLeast2Students();
-        logger.info("List Courses->{}", lstCourses);
+
+    @Test
+    public void retrieveFirst100Course()
+    {
+        List<Course> lstCourses= courseRepositoryByJpa.findCoursesMoreThan2Students();
+        logger.info("List Course->{}",lstCourses);
     }
+
+
 
 
 }

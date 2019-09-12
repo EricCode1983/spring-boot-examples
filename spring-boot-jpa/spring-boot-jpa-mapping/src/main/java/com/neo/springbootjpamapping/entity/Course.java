@@ -30,7 +30,11 @@ public class Course {
 
 	@OneToMany(mappedBy="course")
 	private List<Review> reviews = new ArrayList<>();
-	
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
 	@ManyToMany(mappedBy="courses")
 	private List<Student> students = new ArrayList<>();
 	
