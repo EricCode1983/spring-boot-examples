@@ -1,6 +1,9 @@
 package com.example.basic.thread;
 
 
+
+
+
 //主线程等待法
 public class CycleWait implements Runnable {
 
@@ -22,6 +25,7 @@ public class CycleWait implements Runnable {
     }
 
     public static void main(String[] args) throws InterruptedException {
+
         CycleWait cw=new CycleWait();
         Thread t=new Thread(cw);
         t.start();
@@ -30,5 +34,6 @@ public class CycleWait implements Runnable {
             Thread.currentThread().sleep(100);
         }
         System.out.println("value :"+cw.value);
+
     }
 }
