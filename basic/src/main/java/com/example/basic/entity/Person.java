@@ -15,6 +15,9 @@ public class Person {
     @Autowired
     private Pet pet;
 
+    @Autowired
+    private Bird bird;
+
     public void call(){
         pet.move();
     }

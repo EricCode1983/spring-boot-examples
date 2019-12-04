@@ -15,8 +15,10 @@ public class BasicApplication {
 
      ApplicationContext ctx= SpringApplication.run(BasicApplication.class, args);
      Person person=ctx.getBean(Person.class);
-     System.out.println("Name is "+ person.getName());
-     person.call();
-    }
+/*     System.out.println("Name is "+ person.getName());
+     person.call();*/
 
+
+
+    }
 }
